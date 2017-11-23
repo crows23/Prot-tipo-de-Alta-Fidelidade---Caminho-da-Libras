@@ -1,0 +1,178 @@
+@charset "utf8";
+
+#cornered {
+	border-top: 100px solid #bbb;
+	border-right: 100px solid #DCDCDC;
+}
+
+#texto {
+	padding: 15px;
+	left:15px;
+	width: 280px;
+	height: 100px;
+	background-color: #bbb;
+}
+
+#titulo {
+	font-size: 40px;
+	position:relative;
+	left:20px;
+}
+
+#titulo2 {
+	font-size: 30px;
+	position:relative;
+	top:-10px;
+	left:20px;
+}
+
+#instrucao {
+	height: 100px;
+	width:707px;
+	background:#bbb;
+	padding-top:40px;
+	position:relative;
+	padding-left: 110px;
+}
+
+#container-opcoes {
+	margin-top: 70px;
+	background:#bbb;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.numEtapas {
+	font-weight: bold;
+	font-size: 20px;
+}
+#Etapa1 {
+	width:50px;
+	left: 100px;
+	height: 40px;
+	background-color: #aaa;
+	margin-top: 20px;
+	position:relative;
+	padding:5px;
+}
+
+#txt {
+	position:relative;
+	top:10px;
+}
+
+#txt2 {
+	position:relative;
+	top:25px;
+}
+
+.etapas {
+	position:relative;
+	left:20px;
+}
+
+#Etapa2 {
+	width:50px;
+	background-color: #696969;
+	height: 40px;
+	left: 330px;
+	padding:5px;
+	position:relative;
+	top:-80px;
+}
+
+#btnProximo {
+	position:relative;
+	top:20px;
+	left:0px;
+	height: 40px;
+	width:100%;
+}
+
+#btnVoltar {
+	position:relative;
+	top:20px;
+	height: 40px;
+	width: 100%;
+}
+
+#Etapa3 {
+	width:50px;
+	height: 40px;
+	background-color: #bbb;
+	padding:5px;
+	position:relative;
+	top:-160px;
+	left:490px;
+}
+
+.seta1:before {
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 10px;
+	position:relative;
+	top:-40px;
+	left:260px;
+	border-top: 20px solid transparent;
+	border-bottom: 20px solid transparent;
+	border-left: 30px solid #aaa;
+}
+
+.seta2:before {
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 10px;
+	position:relative;
+	top:-120px;
+	left:425px;
+	border-top: 20px solid transparent;
+	border-bottom: 20px solid transparent;
+	border-left: 30px solid #aaa;
+}
+
+#texto_geral {
+	position:relative;
+	top:-40px;
+	left:-60px;
+	font-size: 30px;
+}
+
+#linha {
+	width: 824px;
+	height: 5px;
+	border:none;
+	color:#DCDCDC;;
+	background-color: #aaa;
+	margin-top: -40px;
+	margin-bottom: 10px;
+	position:relative;
+	left:-84px;
+}
+
+#container-explicacao-regras {
+	height: 220px;
+	width:400px;
+	background-color: grey;
+}
+
+.botoes-regras {
+	height:50px;
+	width:50px;
+	background-color: grey;
+	position: relative;
+}
+
+#botao-regras2 {
+	position: relative;
+}
+
+.img-integrantes {
+	position: relative;
+	margin-top: 30px;
+	margin-bottom: 88px;
+	height: 100px;
+	width:100px;
+	background-color: #aaa;
+}

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Tabuleiro </title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../css/modelo.css">
+	<link rel="stylesheet" type="text/css" href="../css/tabuleiro.css">
+	<link rel="stylesheet" type="text/css" href="../css/casasTabuleiro.css">
+	<script type="text/javascript" src="../js/functions_jquery/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="../js/functions_jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../js/functions_bootstrap/bootstrap.min.js"></script>
+</head>
+<body>
+	<div id="container">
+		<div id="tela_principal">
+			<div id="conteudo">
+				<div id="tabuleiroZoom"></div>
+
+				<figure id="tabuleiro">
+					<div id="casasTabuleiro">
+						<figure id="pino1">
+							<img src="" />
+						</figure>
+
+						<figure id="pino2">
+							<img src="" />
+						</figure>
+
+						<figure id="">
+							<img src="" />
+						</figure>
+
+						<figure id="">
+							<img src="" />
+						</figure>
+
+						<div id="divCasaInicio"></div>
+
+						<div id="divCasa1"></div>
+						
+						<div id="divCasa2"></div>
+						
+						<div id="divCasa3"></div>
+
+						<div id="divCasa4"></div>
+
+						<div id="divCasa5"></div>
+
+						<div id="divCasa6"></div>
+
+						<div id="divCasa7"></div>
+						
+						<div id="divCasa8"></div>
+						
+						<div id="divCasa9"></div>
+						
+						<div id="divCasa10"></div>
+						
+						<div id="divCasa11"></div>
+						
+						<div id="divCasa12"></div>
+						
+						<div id="divCasa13"></div>
+						
+						<div id="divCasa14"></div>
+						
+						<div id="divCasa15"></div>
+						
+						<div id="divCasa16"></div>
+						
+						<div id="divCasa17"></div>
+						
+						<div id="divCasa18"></div>
+						
+						<div id="divCasa19"></div>
+						
+						<div id="divCasa20"></div>
+						
+						<div id="divCasa21"></div>
+						
+						<div id="divCasa22"></div>
+						
+						<div id="divCasa23"></div>
+						
+						<div id="divCasa24"></div>
+						
+						<div id="divCasaChegada"></div>
+					</div>
+				</figure>
+
+				<figure id="primeiraEquipeJogandoAgora">
+					<img src="" />
+					<p></p>
+				</figure>
+
+				<figure id="segundaEquipeJogandoAgora">
+					<img src="" />
+					<p></p>
+				</figure>
+
+				<figure id="terceiraEquipeJogandoAgora">
+					<img src="" />
+					<p></p>
+				</figure>
+
+				<figure id="quartaEquipeJogandoAgora">
+					<img src="" />
+					<p></p>
+				</figure>
+
+				<div id="espacoBotoesOpcao">
+					<div id="botaoZoom">
+						<input type="button" value="Zoom">
+					</div>
+
+					<div id="botaoPontos">
+						<input type="button" value="Pontos">
+					</div>
+
+					<div id="botaoOpcoes">
+						<input type="button" value="Opções">
+					</div>
+
+					<div id="botaoAjuda">
+						<input type="button" value="Ajuda">
+					</div>
+				</div>
+
+				<figure id="mostradorCasaAtual">
+					<img src="" alt="casa" />
+				</figure>
+
+				<div class="container">
+					<div id="dado" class="mostrar-frente">
+						<figure class="frente" title="Fácil"></figure>
+						<figure class="costa" title="Médio"></figure>
+						<figure class="direita" title="Difícil"></figure>
+						<figure class="esquerda" title="Muito Difícil"></figure>
+						<figure class="cima" title="Desafio"></figure>
+						<figure class="baixo" title="ILoveYou"></figure>
+					</div>
+				</div>
+
+				<div id="botaoSair">
+					<input type="button" value="Sair">
+				</div>
+
+				<div id="mostradorDirecaoMoverImagem">
+					<div id="setaTop">
+						<img src="../img/cima.png" alt="Top">
+					</div>
+
+					<div id="setaBottom">
+						<img src="../img/baixo.png" alt="Bottom">
+					</div>
+
+					<div id="setaLeft">
+						<img src="../img/esquerda.png" alt="Left">
+					</div>
+
+					<div id="setaRight">
+						<img src="../img/direita.png" alt="Right">
+					</div>
+				</div>
+
+				<div id="botaoCentralizarTela">
+					<input type="button" value="Centralizar">
+				</div>
+
+				<div class="fundoPopup" id="fundoPopup"></div>
+				
+				<div id="popupPontos">
+					<div id="cabecalhoPopup">
+						<header>
+							<h1> Pontuação </h1>
+						</header>
+					</div>
+
+					<div id="mensagemPopup">
+						<header>
+							<h4> Pontuação das equipes. </h4>
+						</header>
+					</div>
+
+					<div id="containerPontos">
+						<div id="nomeEquipes">
+							<figure>
+								<img src="" id="icone-coroa" alt="coroa">
+							</figure>
+
+							<p> 1. Equipe (nome da equipe)</p> <br>
+							<p> 2. Equipe (nome da equipe)</p> <br>
+							<p> 3. Equipe (nome da equipe)</p> <br>
+							<p> 4. Equipe (nome da equipe)</p> <br>
+						</div>
+
+						<div id="pontos">
+							<div class="quadroDePontos" id="primeiroColocado">
+								0000
+							</div>
+							<div class="quadroDePontos" id="segundooColocado">
+								0000
+							</div>
+							<div class="quadroDePontos" id="terceiroColocado">
+								0000
+							</div>
+							<div class="quadroDePontos" id="quartoColocado">
+								0000
+							</div>
+						</div>
+					</div>
+
+					<div id="botaoOk">
+						<input type="button" value="Ok">
+					</div>
+				</div>
+
+				<div id="popupPergunta">
+					<div id="cabecalhoPopup">
+						<header>
+							<h1> Pergunta </h1>
+						</header>
+					</div>
+
+					<div id="mensagemPopup">
+						<header>
+							<h4> Pergunta para a Equipe (nome da equipe) </h4>
+							<h4> O professor deve selecionar se a equipe acertou, errou ou passou a vez. </h4>
+						</header>
+					</div>
+
+					<div id="containerPergunta">
+						<div id="videoPergunta">
+							Vídeo da Pergunta
+						</div>
+					</div>
+
+					<div id="botaoPassouAVez">
+						<input type="button" value="Passou a vez">
+					</div>
+
+					<div id="botaoErrou">
+						<input type="button" value="Errou">
+					</div>
+
+					<div id="botaoAcertou">
+						<input type="button" value="Acertou">
+					</div>
+				</div>
+
+				<div class="fundoPopup" id="fundoPopup2"></div>
+
+				<div id="popupPassarAVez">
+					<div id="cabecalhoPopupMenor">
+						<header>
+							<h1> Passar </h1>
+							<h2> a vez</h2>
+						</header>
+					</div>
+
+					<p id="textoPassarAVez">Tem certeza que deseja passar a vez?</p>
+
+					<div id="botaoSim">
+						<input type="button" value="Sim" id="sim">
+					</div>
+
+					<div id="botaoNao">
+						<input type="button" value="Não" id="nao">
+					</div>
+				</div>
+
+				<div id="popupRespostaCorreta">
+					<div id="cabecalhoPopupMenor">
+						<header>
+							<h1> Resposta </h1>
+							<h2> Correta </h2>
+						</header>
+					</div>
+
+					<p id="textoPassarAVez">Sua equipe acertou!<br>Avance x casas <br><br>Pontos adquiridos: 0000</p>
+					<div id="botaoOkAcertou">
+						<input type="button" value="Ok">
+					</div>
+				</div>
+
+				<div id="popupRespostaErrada">
+					<div id="cabecalhoPopupMenor">
+						<header>
+							<h1> Resposta </h1>
+							<h2> Errada </h2>
+						</header>
+					</div>
+
+					<p id="textoPassarAVez">Sua equipe errou!<br>Volte x casas <br><br>Pontos removidos: 0000</p>
+					<div id="botaoOkErrou">
+						<input type="button" value="Ok">
+					</div>
+				</div>
+
+				<div id="popupSair">
+					<div id="cabecalhoPopupMenor">
+						<header>
+							<h1> Encerrar </h1>
+							<h2> a partida </h2>
+						</header>
+					</div>
+
+					<p id="textoPassarAVez">Tem certeza que deseja encerrar a partida?</p>
+					<div id="botaoSimPopupSair">
+						<input type="button" value="Sim">
+					</div>
+
+					<div id="botaoNaoPopupSair">
+						<input type="button" value="Não">
+					</div>
+				</div>
+
+				<div id="popupDadosEquipe">
+					<div id="cabecalhoPopup">
+						<header>
+							<h1> Dados </h1>
+							<h2> da Equipe</h2>
+						</header>
+					</div>
+
+					<div id="mensagemPopup">
+						<header>
+							<h4> Informações da Equipe (nome da equipe) </h4>
+						</header>
+					</div>
+
+					<div id="containerDadosEquipe">
+						<figure id="iconeEquipe">
+							<img id="icone" src="" alt="ìcone  da equipe">
+						</figure>
+
+						<p id="nomeEquipeDados">Equipe (nome da equipe)</p>
+
+						<div id="dados">
+							<p id="textoPontosDados" class="textoDadosMaior">Pontos</p>
+							<p id="textoAcumuladoDados" class="textoDadosMenor">acumulados</p><br>
+							<p id="textoCasaDados" class="textoDadosMaior">Casa</p>
+							<p id="textoAtualDados" class="textoDadosMenor">atual</p>
+							<p id="valorPontos"  class="textoDadosMaior">0000</p>
+							<p id="valorCasa" class="textoDadosMaior">12</p>
+						</div>
+
+						<div id="botaoOkDados">
+							<input type="button" value="Ok">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="../js/function_centralizar_tela_principal.js"></script>
+<script src="../js/functions_tabuleiro/function_animacao_fila_equipes.js"></script>
+<script src="../js/functions_tabuleiro/function_girar_dado.js"></script>
+<script src="../js/functions_tabuleiro/function_zoom.js"></script>
+<script src="../js/functions_tabuleiro/function_movimentacao_tabuleiro_zoom.js"></script>
+<script src="../js/functions_tabuleiro/function_abrir_popup_pontos.js"></script>
+<script src="../js/functions_tabuleiro/function_mover_pinos.js"></script>
+<script src="../js/functions_tabuleiro/function_abrir_popup_opcoes.js"></script>
+<script src="../js/functions_tabuleiro/function_abrir_popup_pergunta.js"></script>
+<script src="../js/functions_tabuleiro/function_abrir_popup_encerrar_partida.js"></script>
+</html>
