@@ -34,6 +34,7 @@ if (!campoVazio) {
 		}
 
 		window.localStorage.setItem("nEquipes", quantidadeFiguresDisplayBlock);
+		window.localStorage.setItem("equipesFormadas", true);
 		window.location = "opcoes.html"
 	}
 	btProximo.onmouseover = function() {

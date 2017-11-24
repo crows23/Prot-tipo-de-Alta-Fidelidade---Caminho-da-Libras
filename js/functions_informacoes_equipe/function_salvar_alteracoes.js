@@ -49,7 +49,7 @@ botaoSalvar.onclick = function() {
 				document.getElementById("popup").style.display = "none";
 				document.getElementById("nome_equipe").querySelector("input").value = "";
 
-				alert("Alterações foram salvas com sucesso");
+				// alert("Alterações foram salvas com sucesso");
 				location.reload();
 			}
 			else {

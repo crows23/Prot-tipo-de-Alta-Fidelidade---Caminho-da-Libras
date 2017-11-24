@@ -86,7 +86,7 @@ for (var i = 0; i < figures.length; i++) {
 								break;
 							}
 						}
-						alert ("Uma nova equipe foi adicionada para cadastro.")
+						// alert ("Uma nova equipe foi adicionada para cadastro.")
 						location.reload();
 					}
 				}
@@ -101,7 +101,7 @@ for (var i = 0; i < figures.length; i++) {
 								break;
 							}
 						}
-						alert ("A equipe " + (j+1) + " foi removida do cadastro de equipes.")
+						// alert ("A equipe " + (j+1) + " foi removida do cadastro de equipes.")
 						location.reload();
 					}
 				}

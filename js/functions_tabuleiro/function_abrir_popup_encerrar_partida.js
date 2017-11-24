@@ -11,6 +11,7 @@ botaoSair.onclick = function() {
 		popupSair.style.display = "none";
 		fundoPopup.style.display = "none";
 
+		window.localStorage.clear();
 		window.location = "../index.html";
 	}
 

@@ -1,11 +1,18 @@
+var equipeJogandoAgora;
 var box = document.querySelector(".container").children[0];
 var panelClassName = 'mostrar-frente';
 var classes = ['mostrar-frente', 'mostrar-costa', 'mostrar-direita', 'mostrar-esquerda', 'mostrar-cima', 'mostrar-baixo']
 var posicao;
 
+setInterval(function() {
+    equipeJogandoAgora = window.localStorage.getItem("equipeJogandoAgora");
+}, 100);
+
 box.onclick = function() {
     var intervalo = window.setInterval(function() {
-        var mostrador = getRandomInt(0, 5);
+        var mostrador = getRandomInt(-1, 5);
+
+        console.log(mostrador);
 
         panelClassName = classes[mostrador];
         box.removeAttribute("class");
@@ -51,9 +58,12 @@ box.onclick = function() {
                 indice = i
             }
         }
-        abrirPopupPergunta(box.querySelectorAll("figure")[indice].getAttribute("title"));
-    }, 2003);
+        window.localStorage.setItem('qtdCasas',indice+1);
+        abrirPopupPergunta(box.querySelectorAll("figure")[indice].getAttribute("title"), equipeJogandoAgora, indice+1);
+    }, 2501);
 }
+
+
 
 box.onmouseover = function() {
     box.style.cursor = "pointer";

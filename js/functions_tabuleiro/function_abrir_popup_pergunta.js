@@ -1,6 +1,15 @@
-function abrirPopupPergunta(dificuldade) {
+var imported = document.createElement('script');
+imported.src = 'pontos.js';
+document.head.appendChild(imported);
+function abrirPopupPergunta(dificuldade, equipeJogandoAgora, indice) {
 	var fundoPopup = document.getElementById("fundoPopup");
 	var popupPergunta = document.getElementById("popupPergunta");
+
+	var informacaoPergunta = document.getElementById("informacaoPergunta").querySelectorAll("p");
+	var nomeEquipe = document.getElementById("popupPergunta").querySelectorAll("h4")[0];
+
+	var textoPergunta = document.getElementById("textoPergunta").querySelector("input");
+	var conteudoPergunta = document.getElementById("textoPergunta").querySelector("p");
 
 	var botaoPassarVez = document.getElementById("botaoPassouAVez").querySelector("input");
 	var botaoErrou = document.getElementById("botaoErrou").querySelector("input");
@@ -10,6 +19,13 @@ function abrirPopupPergunta(dificuldade) {
 
 	fundoPopup.style.display = "block";
 	popupPergunta.style.display = "block";
+
+	informacaoPergunta[1].innerText = dificuldade;
+	nomeEquipe.innerText = "Pergunta para a " + window.localStorage.getItem("nomeEquipeOrdenado" + equipeJogandoAgora);
+
+	textoPergunta.oninput = function() {
+		conteudoPergunta.innerText = this.value;
+	}
 
 	botaoPassarVez.onclick = function() {
 		var popupPassarVez = document.getElementById("popupPassarAVez");
@@ -23,6 +39,8 @@ function abrirPopupPergunta(dificuldade) {
 
 			fundoPopup.style.display = "none";
 			popupPergunta.style.display = "none";
+
+			mudarEquipeJogandoAgora();
 		}
 
 		botaoNao.onclick = function () {
@@ -63,6 +81,11 @@ function abrirPopupPergunta(dificuldade) {
 
 			fundoPopup.style.display = "none";
 			popupPergunta.style.display = "none";
+
+			var quantidadeCasas = getRandomInt(0, 3);
+
+			moverPinoTras(quantidadeCasas, equipeJogandoAgora);
+			mudarEquipeJogandoAgora();
 		}
 
 		botaoOkErrou.onmouseover = function() {
@@ -87,6 +110,11 @@ function abrirPopupPergunta(dificuldade) {
 
 			fundoPopup.style.display = "none";
 			popupPergunta.style.display = "none";
+
+			var quantidadeCasas = indice;
+			addPontos(equipeJogandoAgora, indice*10);
+			moverPinoFrente(quantidadeCasas, equipeJogandoAgora);
+			mudarEquipeJogandoAgora();
 		}
 
 		botaoOkAcertou.onmouseover = function() {

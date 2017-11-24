@@ -1,3 +1,6 @@
+var imported = document.createElement('script');
+imported.src = 'pontos.js';
+document.head.appendChild(imported);
 // Cria um contador de inputs com atributo class
 var botaoPontos = document.getElementById("botaoPontos").querySelector("input");
 
