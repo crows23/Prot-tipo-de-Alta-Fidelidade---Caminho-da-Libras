@@ -6,9 +6,16 @@
 	<link rel="stylesheet" type="text/css" href="../css/modelo.css">
 	<link rel="stylesheet" type="text/css" href="../css/tabuleiro.css">
 	<link rel="stylesheet" type="text/css" href="../css/casasTabuleiro.css">
+	<link rel="stylesheet" type="text/css" href="../css/popup_pontos/popup_pontos.css">
+	<link rel="stylesheet" type="text/css" href="../css/popup_perguntas/popup_perguntas.css">
+	<link rel="stylesheet" type="text/css" href="../css/popup_passar_vez/popup_passar_vez.css">
+	<link rel="stylesheet" type="text/css" href="../css/popup_resposta_errada/popup_resposta_errada.css">
+	<link rel="stylesheet" type="text/css" href="../css/popup_resposta_correta/popup_resposta_correta.css">
+	<link rel="stylesheet" type="text/css" href="../css/popup_opcoes/popup_opcoes.css">
+	<link rel="stylesheet" type="text/css" href="../css/popup_encerrar_partida/popup_encerrar_partida.css">
+	<link rel="stylesheet" type="text/css" href="../css/popup_dados_equipe/popup_dados_equipe.css">
 	<script type="text/javascript" src="../js/functions_jquery/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="../js/functions_jquery/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="../js/functions_bootstrap/bootstrap.min.js"></script>
 </head>
 <body>
 	<div id="container">
@@ -145,7 +152,7 @@
 					<input type="button" value="Sair">
 				</div>
 
-				<div id="mostradorDirecaoMoverImagem">
+				<!-- <div id="mostradorDirecaoMoverImagem">
 					<div id="setaTop">
 						<img src="../img/cima.png" alt="Top">
 					</div>
@@ -161,76 +168,68 @@
 					<div id="setaRight">
 						<img src="../img/direita.png" alt="Right">
 					</div>
-				</div>
+				</div> -->
 
 				<div id="botaoCentralizarTela">
 					<input type="button" value="Centralizar">
 				</div>
 
-				<div class="fundoPopup" id="fundoPopup"></div>
+				<div class="fundoPopup"></div>
 				
 				<div id="popupPontos">
-					<div id="cabecalhoPopup">
+					<div id="cabecalhoPopupPontos">
 						<header>
 							<h1> Pontuação </h1>
-						</header>
-					</div>
-
-					<div id="mensagemPopup">
-						<header>
-							<h4> Pontuação das equipes. </h4>
+							<h3> Ranking atual das equipes </h3>
 						</header>
 					</div>
 
 					<div id="containerPontos">
-						<div id="nomeEquipes">
-							<figure>
-								<img src="" id="icone-coroa" alt="coroa">
+						<div id="containerInformacoesPontos">
+							<figure id="icone-coroa">
+								<img src="" alt="coroa">
 							</figure>
 
-							<p> 1. Equipe (nome da equipe)</p> <br>
-							<p> 2. Equipe (nome da equipe)</p> <br>
-							<p> 3. Equipe (nome da equipe)</p> <br>
-							<p> 4. Equipe (nome da equipe)</p> <br>
-						</div>
+							<div id="nomeEquipes">
+								<p> 1. Equipe (nome da equipe) </p>
+								<p> 2. Equipe (nome da equipe) </p>
+								<p> 3. Equipe (nome da equipe) </p>
+								<p> 4. Equipe (nome da equipe) </p>
+							</div>
 
-						<div id="pontos">
-							<div class="quadroDePontos" id="primeiroColocado"> 0000 </div>
-							<div class="quadroDePontos" id="segundooColocado"> 0000 </div>
-							<div class="quadroDePontos" id="terceiroColocado"> 0000 </div>
-							<div class="quadroDePontos" id="quartoColocado"> 0000 </div>
+							<div id="pontos">
+								<p id="primeiroColocado"> 00 </p>
+								<p id="segundooColocado"> 00 </p>
+								<p id="terceiroColocado"> 00 </p>
+								<p id="quartoColocado"> 00 </p>
+							</div>
 						</div>
 					</div>
 
-					<div id="botaoOk">
+					<div id="botaoOkPopupPontos">
 						<input type="button" value="Ok">
 					</div>
 				</div>
 
 				<div id="popupPergunta">
-					<div id="cabecalhoPopup">
+					<div id="cabecalhoPopupPergunta">
 						<header>
 							<h1> Pergunta </h1>
+							<h3> Pergunta para a Equipe (nome da equipe) </h3>
 						</header>
 					</div>
 
-					<div id="mensagemPopup">
-						<header>
-							<h4> Pergunta para a Equipe (nome da equipe) </h4>
-							<h4> O professor deve selecionar se a equipe acertou, errou ou passou a vez. </h4>
-						</header>
-					</div>
-
-					<div id="informacaoPergunta">
-						<p>Dificuldade:</p>
-						<p>xxxxxxxxxxx</p>
-						<hr/>
-						<p>Pontos:</p>
-						<p>000000</p>
+					<div id="containerInformacoesPergunta">
+						<h1> Nível: </h1>
+						<h1> XXXXX </h1>
+						<h1> Pontos: </h1>
+						<h1> 00 </h1>
 					</div>
 
 					<div id="containerPergunta">
-						<div id="videoPergunta"> Vídeo da Pergunta </div>
+						<div id="videoPergunta">
+							<video></video>
+						</div>
 
 						<div id="textoPergunta">
 							<input type="text" placeholder="Digite a pergunta" />
@@ -251,64 +250,111 @@
 					</div>
 				</div>
 
-				<div class="fundoPopup" id="fundoPopup2"></div>
-
-				<div id="popupPassarAVez">
-					<div id="cabecalhoPopupMenor">
+				<div id="popupOpcoes">
+					<div id="cabecalhoPopupOpcoes">
 						<header>
-							<h1> Passar </h1>
-							<h2> a vez</h2>
+							<h1> Opções </h1>
+							<h3> Selecione suas preferências. </h3>
 						</header>
 					</div>
 
-					<p id="textoPassarAVez">Tem certeza que deseja passar a vez?</p>
+					<div id="containerOpcoes">
+						<h2> Habilitar perguntas em vídeo? </h2>
+						<h3> Ao desabilitar, as perguntas serão ministradas pelo professor. </h3>
 
-					<div id="botaoSim">
-						<input type="button" value="Sim" id="sim">
+						<label id="switchPerguntasVideo">
+							<input value="">
+							<input type="button" name="perguntasVideo" value="V" checked>
+						</label>
+
+						<h2> Nível máximo de dificuldade: </h2>
+						<h3> Selecione o nível máximo de dificuldade para as perguntas. </h3>
+
+						<label id="switchDificuldade">
+							<input value="">
+							<input value="">
+							<input value="">
+							<input value="4" checked>
+						</label>
 					</div>
 
-					<div id="botaoNao">
-						<input type="button" value="Não" id="nao">
+					<div id="botaoOkPopupOpcoes">
+						<input type="button" value="Ok">
+					</div>
+				</div>
+
+				<div class="fundoPopup confirmacao"></div>
+
+				<div id="popupPassarAVez">
+					<div id="cabecalhoPassarVez">
+						<header>
+							<h2> Passar a vez </h2>
+						</header>
+					</div>
+
+					<div id="textoPopupPassarAVez">
+						<p> Tem certeza que deseja </p>
+						<p> passar a vez? </p>
+					</div>
+
+					<div id="botaoSimPopupPassarVez">
+						<input type="button" value="Sim">
+					</div>
+
+					<div id="botaoNaoPopupPassarVez">
+						<input type="button" value="Não">
 					</div>
 				</div>
 
 				<div id="popupRespostaCorreta">
-					<div id="cabecalhoPopupMenor">
+					<div id="cabecalhoPopupRespostaCorreta">
 						<header>
-							<h1> Resposta </h1>
-							<h2> Correta </h2>
+							<h2> Acertou! </h2>
 						</header>
 					</div>
 
-					<p id="textoPassarAVez">Sua equipe acertou!<br>Avance x casas <br><br>Pontos adquiridos: 0000</p>
+					<div id="textoPopupRespostaCorreta">
+						<p> Equipe acertou! </p>
+						<p> Avance x casas </p>
+						<p> Total de pontos: 00 </p>
+					</div>
+
 					<div id="botaoOkAcertou">
 						<input type="button" value="Ok">
 					</div>
 				</div>
 
 				<div id="popupRespostaErrada">
-					<div id="cabecalhoPopupMenor">
+					<div id="cabecalhoPopupRespostaErrada">
 						<header>
-							<h1> Resposta </h1>
-							<h2> Errada </h2>
+							<h2> Errou .-. </h2>
 						</header>
 					</div>
 
-					<p id="textoPassarAVez">Sua equipe errou!<br>Volte x casas <br><br>Pontos removidos: 0000</p>
+					<div id="textoPopupRespostaErrada">
+						<p> Equipe errou .-. </p>
+						<p> Volte x casas </p>
+						<p> Total de pontos: 00 </p>
+					</div>
+
 					<div id="botaoOkErrou">
 						<input type="button" value="Ok">
 					</div>
 				</div>
 
 				<div id="popupSair">
-					<div id="cabecalhoPopupMenor">
+					<div id="cabecalhoPopupSair">
 						<header>
-							<h1> Encerrar </h1>
-							<h2> a partida </h2>
+							<h2> Sair da partida </h2>
 						</header>
 					</div>
 
-					<p id="textoPassarAVez">Tem certeza que deseja encerrar a partida?</p>
+					<div id="textoPopupSair">
+						<p> Tem certeza que deseja </p>
+						<p> sair? </p>
+
+					</div>
+
 					<div id="botaoSimPopupSair">
 						<input type="button" value="Sim">
 					</div>
@@ -319,33 +365,26 @@
 				</div>
 
 				<div id="popupDadosEquipe">
-					<div id="cabecalhoPopup">
+					<div id="cabecalhoPopupDadosEquipe">
 						<header>
-							<h1> Dados </h1>
-							<h2> da Equipe</h2>
-						</header>
-					</div>
-
-					<div id="mensagemPopup">
-						<header>
-							<h4> Informações da Equipe (nome da equipe) </h4>
+							<h1> Dados da Equipe </h1>
 						</header>
 					</div>
 
 					<div id="containerDadosEquipe">
 						<figure id="iconeEquipe">
-							<img id="icone" src="" alt="ìcone  da equipe">
+							<img src="" alt="">
 						</figure>
 
 						<p id="nomeEquipeDados">Equipe (nome da equipe)</p>
 
 						<div id="dados">
-							<p id="textoPontosDados" class="textoDadosMaior">Pontos</p>
-							<p id="textoAcumuladoDados" class="textoDadosMenor">acumulados</p><br>
-							<p id="textoCasaDados" class="textoDadosMaior">Casa</p>
-							<p id="textoAtualDados" class="textoDadosMenor">atual</p>
-							<p id="valorPontos"  class="textoDadosMaior">0000</p>
-							<p id="valorCasa" class="textoDadosMaior">12</p>
+							<p>Pontos</p>
+							<p>acumulados:</p>
+							<p>Casa</p>
+							<p>atual:</p>
+							<p>00</p>
+							<p>12</p>
 						</div>
 
 						<div id="botaoOkDados">
@@ -353,6 +392,7 @@
 						</div>
 					</div>
 				</div>
+
 			</div>
 		</div>
 	</div>

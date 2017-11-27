@@ -1,46 +1,46 @@
 @charset "utf8";
 
+#cornered {
+	border-top: 100px solid #bbb;
+	border-right: 100px solid #DCDCDC;
+}
+
 #texto {
-	
-	padding: 10px;
+	padding: 15px;
 	left:15px;
-    width: 500px;
-    height: 120px;
-    background-color: #bbb;
-}
-#titulo{
-	margin-left: 10px;
-	font-size: 48px;
-	line-height: 53.6px;
-}
-#subtitulo{
-
-		font-size: 30px;
-		position:relative;
-		top:-10px;
-
-}
-#instrucao{
-height: 120px;
-width:765px;
-background:#bbb;
-padding-top:40px;
-padding-left: 110px;
-
-}
-
-#container-opcoes{
-	position: relative;
-	top: 0;
-	left: 0;
-	margin-top:75px;
-	margin-left: 275px;
-	padding: 10px;
-	width: 845px;
-	height: 445px;
+	width: 280px;
+	height: 100px;
 	background-color: #bbb;
 }
 
+#titulo {
+	font-size: 40px;
+	position:relative;
+	left:20px;
+}
+
+#titulo2 {
+	font-size: 30px;
+	position:relative;
+	top:-10px;
+	left:20px;
+}
+
+#instrucao {
+	height: 100px;
+	width:707px;
+	background:#bbb;
+	padding-top:40px;
+	position:relative;
+	padding-left: 110px;
+}
+
+#container-opcoes {
+	margin-top: 70px;
+	background:#bbb;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
 
 .numEtapas {
 	font-weight: bold;
@@ -132,24 +132,25 @@ padding-left: 110px;
 	border-left: 30px solid #aaa;
 }
 
-#texto_geral{
+#texto_geral {
 	position:relative;
-	top:10px;
+	top:-40px;
 	left:-60px;
-	font-size: 35px;
+	font-size: 30px;
+}
 
+#linha {
+	width: 824px;
+	height: 5px;
+	border:none;
+	color:#DCDCDC;;
+	background-color: #aaa;
+	margin-top: -40px;
+	margin-bottom: 10px;
+	position:relative;
+	left:-84px;
 }
-#linha{
-width: 844px;
-height: 5px;
-border:none;
-color:#DCDCDC;;
-background-color: #aaa;
-margin-top: 0px;
-margin-bottom: 10px;
-position:relative;
-left:-80px;
-}
+
 #container-explicacao-regras {
 	height: 220px;
 	width:400px;
