@@ -1,66 +1,73 @@
-var imported = document.createElement('script');
-imported.src = 'pontos.js';
-document.head.appendChild(imported);
-// Cria um contador de inputs com atributo class
 var botaoPontos = document.getElementById("botaoPontos").querySelector("input");
 
 botaoPontos.onclick = function() {
-	// Pega a div com id "fundo" e a coloca na variavel fundo
-	var fundo = document.getElementById("fundoPopup");
+	var fundoPopup = document.getElementsByClassName("fundoPopup")[0];
 	var popupPontos = document.getElementById("popupPontos");
-	var botaoOk = document.getElementById("botaoOk").querySelector("input");
-
-	var primeiraEquipeJogandoAgora = document.getElementById("primeiraEquipeJogandoAgora");
-	var segundaEquipeJogandoAgora = document.getElementById("segundaEquipeJogandoAgora");
-	var terceiraEquipeJogandoAgora = document.getElementById("terceiraEquipeJogandoAgora");
-	var quartaEquipeJogandoAgora = document.getElementById("quartaEquipeJogandoAgora");
+	var botaoOk = document.getElementById("botaoOkPopupPontos").querySelector("input");
 
 	var nEquipes = window.localStorage.getItem("nEquipes");
 	var nomeEquipes = document.getElementById("nomeEquipes").querySelectorAll("p");
+	var pontosEquipes = document.getElementById("pontos").querySelectorAll("p");
 
-	if (nEquipes == 2) {
-		nomeEquipes[0].innerText = "1 - " + primeiraEquipeJogandoAgora.querySelector("p").innerText;
-		nomeEquipes[1].innerText = "2 - " + segundaEquipeJogandoAgora.querySelector("p").innerText;
-		nomeEquipes[2].style.display = "none";
-		nomeEquipes[3].style.display = "none";
+	var pontuacaoEquipes = informacoesEquipes.slice(0);
+
+	for (var i = nomeEquipes.length - 1; i >= nEquipes; i--) {
+		nomeEquipes[i].style.display = "none";
+		pontosEquipes[i].style.display = "none";
 	}
 
-	else if (nEquipes == 3) {
-		nomeEquipes[0].innerText = "1 - " + primeiraEquipeJogandoAgora.querySelector("p").innerText;
-		nomeEquipes[1].innerText = "2 - " + segundaEquipeJogandoAgora.querySelector("p").innerText;
-		nomeEquipes[2].innerText = "3 - " + terceiraEquipeJogandoAgora.querySelector("p").innerText;
-		nomeEquipes[3].style.display = "none";
+	for (var i = 0; i < pontuacaoEquipes.length; i++) {
+		for (var j = 0; j < pontuacaoEquipes.length; j++) {
+			if (j != i) {
+				if (pontuacaoEquipes[j][2] < pontuacaoEquipes[i][2]) {
+					equipeAux = pontuacaoEquipes[i];
+					pontuacaoEquipes[i] = pontuacaoEquipes[j];
+					pontuacaoEquipes[j] = equipeAux;
+				}
+			}
+		}
 	}
 
-	else if (nEquipes == 4) {
-		nomeEquipes[0].innerText = "1 - " + primeiraEquipeJogandoAgora.querySelector("p").innerText;
-		nomeEquipes[1].innerText = "2 - " + segundaEquipeJogandoAgora.querySelector("p").innerText;
-		nomeEquipes[2].innerText = "3 - " + terceiraEquipeJogandoAgora.querySelector("p").innerText;
-		nomeEquipes[3].innerText = "4 - " + quartaEquipeJogandoAgora.querySelector("p").innerText;
+	for (var i = 0; i < pontuacaoEquipes.length; i++) {
+		nomeEquipes[i].innerText = (i+1) + " - " + pontuacaoEquipes[i][0].querySelector("p").innerText;
+		pontosEquipes[i].innerText = pontuacaoEquipes[i][2];
 	}
 
-	fundo.style.display = "block";
+	fundoPopup.style.display = "block";
 	popupPontos.style.display = "block";
 
 	botaoOk.onclick = function() {
-		fundo.style.display = "none";
+		fundoPopup.style.display = "none";
 		popupPontos.style.display = "none";
 		this.onclick = null;
 	}
 
 	botaoOk.onmouseover = function() {
 		this.style.cursor = "pointer";
+		this.style.border = "4px solid #283891";
 	}
 
 	botaoOk.onmouseout = function() {
 		this.style.cursor = "default";
+		this.style.border = "none";
 	}
 }
 
 botaoPontos.onmouseover = function() {
+	this.valueOf().style.height = "50px";
+	this.valueOf().style.marginTop = "-25px";
+
+	this.style.border = "2px solid #283891";
+	this.style.borderBottom = "none";
+
 	this.style.cursor = "pointer";
 }
 
 botaoPontos.onmouseout = function() {
+	this.valueOf().style.height = "33px";
+	this.valueOf().style.marginTop = "0px";
+
+	this.style.border = "none";
+
 	this.style.cursor = "default";
 }

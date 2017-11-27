@@ -13,7 +13,7 @@ for (var i = 0; i < figures.length; i++) {
 for (var i = 0; i < figuresCadastroEquipe.length; i++) {
 	if (window.localStorage.getItem("equipe" + (i+1)) != null) {
 		figuresCadastroEquipe[i].style.display = window.localStorage.getItem("equipe" + (i+1));
-		labels[i].style.display = window.localStorage.getItem("equipe" + (i+1));
+		// labels[i].style.display = window.localStorage.getItem("equipe" + (i+1));
 	}
 }
 
@@ -33,35 +33,31 @@ for (var i = 0; i < figuresCadastroEquipe.length; i++) {
 switch(quantidadeFiguresMostrados) {
 	case 2:
 		figuresCadastroEquipe[0].style.display = "block";
-		figuresCadastroEquipe[0].style.marginLeft = "302px";
-		labels[0].style.marginLeft = "302px";
+		figuresCadastroEquipe[0].style.marginLeft = "270px";
+		// labels[0].style.marginLeft = "270px";
 
-		figuresCadastroEquipe[1].style.marginLeft = "302px";
-		labels[1].style.marginLeft = "302px";
-
-		figures[4].style.marginTop = "97.5px";
-		labels[4].style.marginTop = "115.5px";
-
-		figures[5].style.display = "none";
-		labels[5].style.display = "none";
+		figuresCadastroEquipe[1].style.marginLeft = "270px";
+		figuresCadastroEquipe[1].style.marginTop = "255px";
+		figuresCadastroEquipe[1].style.borderRadius = "15px 15px 100px 100px/15px 15px 30px 30px";
+		figuresCadastroEquipe[1].style.lineHeight = "50px";
+		// labels[1].style.marginLeft = "302px";
 		break;
 
 	case 3:
-		figuresCadastroEquipe[0].style.marginLeft = "173px";
-		labels[0].style.marginLeft = "173px";
+		figuresCadastroEquipe[0].style.marginLeft = "150px";
 
-		figuresCadastroEquipe[1].style.marginLeft = "173px";
-		labels[1].style.marginLeft = "173px";
+		figuresCadastroEquipe[1].style.marginTop = "65px";
+		figuresCadastroEquipe[1].style.marginLeft = "375px";
+		figuresCadastroEquipe[1].style.borderRadius = "100px 100px 15px 15px/30px 30px 15px 15px";
+		figuresCadastroEquipe[1].style.lineHeight = "250px";
+		// labels[0].style.marginLeft = "173px";
 
-		figuresCadastroEquipe[2].style.marginTop = "163px";
-		labels[2].style.marginTop = "290px";
-		break;
+		figuresCadastroEquipe[2].style.marginLeft = "270px";
+		figuresCadastroEquipe[2].style.borderRadius = "15px 15px 100px 100px/15px 15px 30px 30px";
+		figuresCadastroEquipe[2].style.lineHeight = "50px";
+		// labels[1].style.marginLeft = "173px";
 
-	case 4:
-		figures[4].style.display = "none";
-		labels[4].style.display = "none";
-
-		figures[5].style.marginTop = "97.5px";
-		labels[5].style.marginTop = "115.5px";
+		// figuresCadastroEquipe[2].style.marginTop = "163px";
+		// labels[2].style.marginTop = "290px";
 		break;
 }

@@ -1,14 +1,13 @@
 var nEquipes = window.localStorage.getItem("nEquipes");
-var figures = document.getElementById("espaco_informacoes").querySelectorAll("figure");
-var divs = document.getElementById("espaco_informacoes").getElementsByClassName("col-md-7");
+var figures = document.getElementById("containerOrdemEquipes").querySelectorAll("figure");
 
 var ordem = [];
 var nomeEquipes = [];
 var imgEquipes = [];
 
 if (window.localStorage.getItem("equipesFormadas") == "true") {
-	while (ordem.length < nEquipes) {
-		var indice = getRandomInt(0, nEquipes);
+	while (ordem.length < parseInt(nEquipes)) {
+		var indice = getRandomInt(0, parseInt(nEquipes));
 		if (ordem.length != 0) {
 			var igual = false;
 			for (var i = 0; i < ordem.length; i++) {
@@ -26,48 +25,41 @@ if (window.localStorage.getItem("equipesFormadas") == "true") {
 		}
 	}
 
-	for (var i = 0; i < nEquipes; i++) {
+	for (var i = 0; i < parseInt(nEquipes); i++) {
 		var nomeEquipe = window.localStorage.getItem("nomeEquipe"+(ordem[i]));
 		var imgEquipe = window.localStorage.getItem("caminhoImagemEquipe"+(ordem[i]));
 
-		nomeEquipes[i] = nomeEquipe;
-		imgEquipes[i] = imgEquipe;
+		nomeEquipes.push(nomeEquipe);
+		imgEquipes.push(imgEquipe);
 	}
+
 	window.localStorage.setItem("equipesFormadas", false);
 }
 
-if (nEquipes == 2) {
-	figures[2].style.display = "none";
-	divs[2].style.display = "none";
-	figures[3].style.display = "none";
-	divs[3].style.display = "none";
-}
-else if (nEquipes == 3) {
-	figures[3].style.display = "none";
-	divs[3].style.display = "none";
-}
+for (var i = 0; i < parseInt(nEquipes); i++) {
+	if (window.localStorage.getItem("caminhoImagemOrdenado" + (i+1)) == null || window.localStorage.getItem("caminhoImagemOrdenado" + (i+1)) == "null") {
+		window.localStorage.setItem("caminhoImagemOrdenado" + (i+1), imgEquipes[i]);
+		window.localStorage.setItem("nomeEquipeOrdenado" + (i+1), nomeEquipes[i]);
 
-for (var i = 0; i < nEquipes; i++) {
-	if (window.localStorage.getItem("caminhoImagemOrdenado" + (i+1)) != null) {
-		figures[i].querySelector("img").src = window.localStorage.getItem("caminhoImagemOrdenado" + (i+1));
+		figures[i].querySelector("img").src = imgEquipes[i];
+		figures[i].querySelector("img").alt = nomeEquipes[i];
 		figures[i].querySelector("img").style.width = "100%";
 		figures[i].querySelector("img").style.height = "100%";
-		divs[i].getElementsByClassName("nomeEquipe").item("innerText").innerText = window.localStorage.getItem("nomeEquipeOrdenado" + (i+1));
 	}
 	else {
-		figures[i].querySelector("img").src = imgEquipes[i];
+		figures[i].querySelector("img").src = window.localStorage.getItem("caminhoImagemOrdenado" + (i+1));
+		figures[i].querySelector("img").alt = window.localStorage.getItem("nomeEquipeOrdenado" + (i+1));
 		figures[i].querySelector("img").style.width = "100%";
 		figures[i].querySelector("img").style.height = "100%";
-		divs[i].getElementsByClassName("nomeEquipe").item("innerText").innerText = nomeEquipes[i];
 	}
 }
 
-for (var i = 0; i < nEquipes; i++) {
-	if (window.localStorage.getItem("caminhoImagemOrdenado" + (i+1)) == null) {
-		window.localStorage.setItem("caminhoImagemOrdenado" + (i+1), figures[i].querySelector("img").getAttribute("src"));
-		window.localStorage.setItem("nomeEquipeOrdenado" + (i+1), divs[i].getElementsByClassName("nomeEquipe").item("innerText").innerText);
-	}
-}
+// for (var i = 0; i < parseInt(nEquipes); i++) {
+// 	if (window.localStorage.getItem("caminhoImagemOrdenado" + (i+1)) == null) {
+// 		window.localStorage.setItem("caminhoImagemOrdenado" + (i+1), figures[i].querySelector("img").getAttribute("src"));
+// 		window.localStorage.setItem("nomeEquipeOrdenado" + (i+1), figures[i].querySelector("img").getAttribute("alt"));
+// 	}
+// }
 
 window.localStorage.setItem("equipeJogandoAgora", 1);
 

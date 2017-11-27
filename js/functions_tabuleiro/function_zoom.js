@@ -6,10 +6,14 @@ $(document).ready(function() {
 			$("div .container").css("display", "none");
 			$("#botaoCentralizarTela").css("display", "block");
 
-			$("#espacoBotoesOpcao").css("width", "68.097px");
-			$("#espacoBotoesOpcao").css("height", "53px");
+			$("#espacoBotoesOpcao").css("width", "400px");
 			$("#espacoBotoesOpcao").css("margin-top", "0px");
-			$("#espacoBotoesOpcao").css("margin-left", "682.794px");
+			$("#espacoBotoesOpcao").css("margin-left", "683px");
+
+			$("#botaoZoom input").css("border-top-left-radius", "0px");
+			$("#botaoZoom input").css("border-top-right-radius", "0px");
+			$("#botaoZoom input").css("border-bottom-left-radius", "10px");
+			$("#botaoZoom input").css("border-bottom-right-radius", "10px");
 
 
 			$("#botaoPontos").css("display", "none");
@@ -61,8 +65,8 @@ $(document).ready(function() {
 				$("#mostradorCasaAtual").css("transition", "opacity 0.5s ease");
 				$("#botaoCentralizarTela").css("transition", "opacity 0.5s ease");
 			});
-
 		}
+
 		else {
 			$("#tabuleiro").css("top", "0");
 			$("#tabuleiro").css("left", "0");
@@ -80,10 +84,15 @@ $(document).ready(function() {
 				$("#botaoCentralizarTela").css("display", "none");
 				$("div .container").css("display", "block");
 
-				$("#espacoBotoesOpcao").css("width", "272.388px");
+				$("#espacoBotoesOpcao").css("width", "350px");
 				$("#espacoBotoesOpcao").css("height", "33px");
 				$("#espacoBotoesOpcao").css("margin-top", "735px");
-				$("#espacoBotoesOpcao").css("margin-left", "1073.625px");
+				$("#espacoBotoesOpcao").css("margin-left", "996px");
+
+				$("#botaoZoom input").css("border-top-left-radius", "10px");
+				$("#botaoZoom input").css("border-top-right-radius", "10px");
+				$("#botaoZoom input").css("border-bottom-left-radius", "0px");
+				$("#botaoZoom input").css("border-bottom-right-radius", "0px");
 
 				$("#botaoPontos").css("display", "block");
 				$("#botaoOpcoes").css("display", "block");
@@ -107,13 +116,30 @@ $(document).ready(function() {
 			}, 501);
 		}
 	});
-
+	
 	$("#botaoZoom input").mouseover(function() {
 		$(this).css("cursor", "pointer");
+		$(this).css("border", "2px solid #283891");
+		$(this).valueOf().css("height", "50px");
+
+		if ($(this).attr("value") == "Zoom") {
+			$(this).valueOf().css("margin-top", "-25px");
+
+			$(this).css("border-bottom", "none");
+		}
+
+		else {
+			$(this).valueOf().css("margin-top", "0px");
+
+			$(this).css("border-top", "none");
+		}	
 	});
 
 	$("#botaoZoom input").mouseout(function() {
 		$(this).css("cursor", "default");
+		$(this).css("border", "none");
+		$(this).valueOf().css("height", "33px");
+		$(this).valueOf().css("margin-top", "0px");
 	});
 
 	$("#botaoCentralizarTela input").click(function() {
@@ -128,9 +154,18 @@ $(document).ready(function() {
 
 	$("#botaoCentralizarTela input").mouseover(function() {
 		$(this).css("cursor", "pointer");
+		$(this).css("border", "2px solid #283891");
+		$(this).css("border-top", "none");
+
+		$(this).valueOf().css("height", "50px");
+		$(this).valueOf().css("margin-top", "0px");
 	});
 
 	$("#botaoCentralizarTela input").mouseout(function() {
 		$(this).css("cursor", "default");
+		$(this).css("border", "none");
+
+		$(this).valueOf().css("height", "33px");
+		$(this).valueOf().css("margin-top", "0px");
 	});
 });

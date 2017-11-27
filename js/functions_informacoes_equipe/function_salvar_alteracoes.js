@@ -4,15 +4,15 @@ botaoSalvar.onclick = function() {
 	var figuresPopup = document.getElementById("containerInformacoesEquipe").querySelectorAll("figure");
 	var labels = document.getElementById("containerCadastrarEquipe").querySelectorAll("label");
 	var nomeEquipe = document.getElementById("nome_equipe").querySelector("input");
-	var textH2 = document.getElementById("cabecalhoPopup").querySelector("h2").innerText.split(" ");
-	var id = textH2[1];
+	var textAltEquipe = window.localStorage.getItem("idEquipeCadastrandoAgora").split(" ");
+	var id = textAltEquipe[1];
 	var imgEquipe;
 
 	if (nomeEquipe.value != "" && nomeEquipe.value.length > 5 && nomeEquipe.value.length < 16) {
 		var nomeIgual = false;
 		for (var i = labels.length - 1; i >= 0; i--) {
 			if (i != (id-1)) {
-				if (window.getComputedStyle(labels[i]).display == "block") {
+				if (window.getComputedStyle(labels[i]).display == "none") {
 					if (labels[i].innerText == nomeEquipe.value) {
 						alert("O nome da equipe escolhido já está sendo usado por outra equipe." +
 							 " Por favor, escolha outro nome.");
@@ -24,13 +24,11 @@ botaoSalvar.onclick = function() {
 			}
 		}
 
-		console.log(id);
-
 		if (!nomeIgual) {
 			var caminhoImagem = false;
 
 			for (var i = 0; i < figuresPopup.length; i++) {
-				if (figuresPopup[i].querySelector("img").style.border == "2px solid rgb(255, 0, 0)") {
+				if (figuresPopup[i].querySelector("img").style.border == "2px solid rgb(40, 56, 145)") {
 					caminhoImagem = true;
 					imgEquipe = figuresPopup[i].querySelector("img").getAttribute("src");
 					window.localStorage.setItem("idPopup", i);
@@ -40,7 +38,7 @@ botaoSalvar.onclick = function() {
 			}
 
 			if (caminhoImagem) {
-				id = textH2[1];
+				// id = textAltEquipe[1];
 				window.localStorage.setItem("nomeEquipe" + id, nomeEquipe.value);
 				window.localStorage.setItem("imgEquipe" + id, imgEquipe);
 				window.localStorage.setItem("id" + id, id);

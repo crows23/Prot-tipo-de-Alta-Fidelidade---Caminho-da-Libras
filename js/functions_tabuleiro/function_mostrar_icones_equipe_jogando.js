@@ -5,7 +5,7 @@ var segundaEquipeJogandoAgora = document.getElementById("segundaEquipeJogandoAgo
 var terceiraEquipeJogandoAgora = document.getElementById("terceiraEquipeJogandoAgora");
 var quartaEquipeJogandoAgora = document.getElementById("quartaEquipeJogandoAgora");
 
-var fila = [];
+var informacoesEquipes = [];
 
 if (nEquipes == 2) {
 	primeiraEquipeJogandoAgora.querySelector("img").src = window.localStorage.getItem("caminhoImagemOrdenado1");
@@ -17,7 +17,7 @@ if (nEquipes == 2) {
 	terceiraEquipeJogandoAgora.style.display = "none";
 	quartaEquipeJogandoAgora.style.display = "none";
 
-	fila = [primeiraEquipeJogandoAgora, segundaEquipeJogandoAgora]
+	informacoesEquipes = [[primeiraEquipeJogandoAgora, 0, 0], [segundaEquipeJogandoAgora, 0, 0]];
 }
 
 else if (nEquipes == 3) {
@@ -32,7 +32,7 @@ else if (nEquipes == 3) {
 
 	quartaEquipeJogandoAgora.style.display = "none";
 
-	fila = [primeiraEquipeJogandoAgora, segundaEquipeJogandoAgora, terceiraEquipeJogandoAgora]
+	informacoesEquipes = [[primeiraEquipeJogandoAgora, 0, 0], [segundaEquipeJogandoAgora, 0, 0], [terceiraEquipeJogandoAgora, 0, 0]];
 }
 
 else if (nEquipes == 4) {
@@ -48,36 +48,64 @@ else if (nEquipes == 4) {
 	quartaEquipeJogandoAgora.querySelector("img").src = window.localStorage.getItem("caminhoImagemOrdenado4");
 	quartaEquipeJogandoAgora.querySelector("p").innerText = window.localStorage.getItem("nomeEquipeOrdenado4");
 
-	fila = [primeiraEquipeJogandoAgora, segundaEquipeJogandoAgora, terceiraEquipeJogandoAgora, quartaEquipeJogandoAgora]
+	informacoesEquipes = [[primeiraEquipeJogandoAgora, 0, 0],
+						  [segundaEquipeJogandoAgora, 0, 0],
+						  [terceiraEquipeJogandoAgora, 0, 0],
+						  [quartaEquipeJogandoAgora, 0, 0]];
 }
 
-for (var i = 0; i < fila.length; i++) {
-	fila[i].onmouseover = function() {
+for (var i = 0; i < informacoesEquipes.length; i++) {
+	informacoesEquipes[i][0].onmouseover = function() {
 		this.style.cursor = "pointer";
+		this.style.borderColor = "#283891";
 	}
 
-	fila[i].onmouseout = function() {
+	informacoesEquipes[i][0].onmouseout = function() {
 		this.style.cursor = "default";
+		this.style.borderColor = "#f3efe2";
 	}
 
-	fila[i].onclick = function() {
+	informacoesEquipes[i][0].onclick = function() {
 		nomeEquipe = this.querySelector("p").innerText;
 		imgEquipe = this.querySelector("img").getAttribute("src");
 
-		var fundoPopup = document.getElementById("fundoPopup");
+		var fundoPopup = document.getElementsByClassName("fundoPopup")[0];
 		var popupDadosEquipe = document.getElementById("popupDadosEquipe");
 		var containerDadosEquipe = document.getElementById("containerDadosEquipe");
 
 		var botaoOkDados = document.getElementById("botaoOkDados").querySelector("input");
 
+		var casa = document.getElementById("dados").querySelectorAll("p")[5];
+		var pontos = document.getElementById("dados").querySelectorAll("p")[4];
+
 		popupDadosEquipe.style.display = "block";
 		fundoPopup.style.display = "block";
 
-		popupDadosEquipe.querySelector("h4").innerText = "Informações da " + nomeEquipe;
 		containerDadosEquipe.querySelector("figure").querySelector("img").src = imgEquipe;
+		containerDadosEquipe.querySelector("#nomeEquipeDados").innerText = nomeEquipe;
+
 		containerDadosEquipe.querySelector("figure").querySelector("img").style.width = "100%";
 		containerDadosEquipe.querySelector("figure").querySelector("img").style.height = "100%";
-		containerDadosEquipe.querySelector("#nomeEquipeDados").innerText = nomeEquipe;
+
+		for (var i = 0; i < informacoesEquipes.length; i++) {
+			if (this.id == informacoesEquipes[i][0].id) {
+				if (informacoesEquipes[i][1] != 0 && informacoesEquipes[i][1] != 25) {
+					casa.innerText = informacoesEquipes[i][1];
+				}
+				else if (informacoesEquipes[i][1] == 0) {
+					casa.innerText = "Início";
+				}
+				else {
+					casa.innerText = "Chegada";
+				}
+			}
+		}
+
+		for (var i = 0; i < informacoesEquipes.length; i++) {
+			if (this.id == informacoesEquipes[i][0].id) {
+				pontos.innerText = informacoesEquipes[i][2];
+			}
+		}
 
 		botaoOkDados.onclick = function() {
 			popupDadosEquipe.style.display = "none";
@@ -87,10 +115,12 @@ for (var i = 0; i < fila.length; i++) {
 
 		botaoOkDados.onmouseover = function() {
 			this.style.cursor = "pointer";
+			this.style.border = "4px solid #283891";
 		}
 
 		botaoOkDados.onmouseout = function() {
 			this.style.cursor = "default";
+			this.style.border = "none";
 		}
 	}
 }

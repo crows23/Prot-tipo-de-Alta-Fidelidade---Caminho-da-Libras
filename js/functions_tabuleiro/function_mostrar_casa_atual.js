@@ -110,5 +110,15 @@ function mostrarCasaAtual(equipeJogandoAgora) {
 		}
 	}
 
-	mostradorCasa.alt = indiceDivAtual + 1;
+	if (indiceDivAtual != 0 && indiceDivAtual != 25){
+		mostradorCasa.alt = indiceDivAtual;
+	}
+	else if (indiceDivAtual == 0) {
+		mostradorCasa.alt = "Início";
+	}
+	else {
+		mostradorCasa.alt = "Chegada";
+	}
+
+	return mostradorCasa.alt;
 }

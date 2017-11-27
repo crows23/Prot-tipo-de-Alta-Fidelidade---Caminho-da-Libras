@@ -12,8 +12,6 @@ box.onclick = function() {
     var intervalo = window.setInterval(function() {
         var mostrador = getRandomInt(-1, 5);
 
-        console.log(mostrador);
-
         panelClassName = classes[mostrador];
         box.removeAttribute("class");
         box.setAttribute("class", panelClassName);
@@ -58,8 +56,7 @@ box.onclick = function() {
                 indice = i
             }
         }
-        window.localStorage.setItem('qtdCasas',indice+1);
-        abrirPopupPergunta(box.querySelectorAll("figure")[indice].getAttribute("title"), equipeJogandoAgora, indice+1);
+        abrirPopupPergunta(box.querySelectorAll("figure")[indice].getAttribute("title"), equipeJogandoAgora);
     }, 2501);
 }
 

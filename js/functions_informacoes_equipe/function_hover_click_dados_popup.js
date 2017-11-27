@@ -1,11 +1,14 @@
 var figuresPopup = document.getElementById("containerInformacoesEquipe").querySelectorAll("figure");
+var botaoRetornar = document.getElementById("botaoRetornar").querySelector("input");
+var botaoSalvar = document.getElementById("botaoSalvar").querySelector("input");
 
 for (var i = 0; i < figuresPopup.length; i++) {
 	if (figuresPopup[i].id == "icone" + (i+1)) {
 		figuresPopup[i].onmouseover = function() {
 			this.style.width = "14.3%";
 			this.style.height = "98%";
-			this.style.border = "2px solid #f00";
+			this.style.border = "2px solid #283891";
+			this.style.borderRadius = "20px";
 			this.style.cursor = "pointer";
 		}
 
@@ -18,7 +21,7 @@ for (var i = 0; i < figuresPopup.length; i++) {
 
 		figuresPopup[i].onclick = function() {
 			for (var i = 0; i < figuresPopup.length; i++) {
-				if (figuresPopup[i].querySelector("img").style.border == "2px solid rgb(255, 0, 0)") {
+				if (figuresPopup[i].querySelector("img").style.border == "2px solid rgb(40, 56, 145)") {
 					figuresPopup[i].querySelector("img").style.width = "100%";
 					figuresPopup[i].querySelector("img").style.height = "100%";
 					figuresPopup[i].querySelector("img").style.border = "none";
@@ -37,7 +40,24 @@ for (var i = 0; i < figuresPopup.length; i++) {
 			}
 			this.querySelector("img").style.width = "98%";
 			this.querySelector("img").style.height = "96%";
-			this.querySelector("img").style.border = "2px solid #f00";
+			this.querySelector("img").style.border = "2px solid #283891";
+			this.querySelector("img").style.borderRadius = "20px";
 		}
 	}
+}
+
+botaoRetornar.onmouseover = function() {
+	this.style.cursor = "pointer";
+}
+
+botaoRetornar.onmouseout = function() {
+	this.style.cursor = "default";
+}
+
+botaoSalvar.onmouseover = function() {
+	this.style.cursor = "pointer";
+}
+
+botaoSalvar.onmouseout = function() {
+	this.style.cursor = "default";
 }

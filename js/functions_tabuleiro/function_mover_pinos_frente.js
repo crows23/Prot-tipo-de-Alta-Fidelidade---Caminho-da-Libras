@@ -1,7 +1,6 @@
 function moverPinoFrente(quantidadeCasas, equipeJogandoAgora) {
 	var indiceFigureAtual = (equipeJogandoAgora-1);
 	var indiceDivAtual;
-	var getIndice = false;
 
 	for (var i = 0; i < divs.length; i++) {
 		var figureMarginLeftSplit = figures[indiceFigureAtual].style.marginLeft.split("px");
